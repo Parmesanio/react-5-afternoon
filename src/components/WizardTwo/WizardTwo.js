@@ -5,13 +5,14 @@ import { updateCity } from '../../ducks/reducer';
 
 class WizardTwo extends Component {
     render(){
+        let { updateCity } = this.props;
         return(
             <div className="parent-div">
                 <div className="vert-align">
             
                 <p>In what city will the property be located?</p><br />
                     
-                        <input placeholder="city name" type="text" onChange={() => updateCity(this.props.updateCity)}/>
+                        <input placeholder="city name" type="text" onChange={(e) => updateCity(e.target.value)}/>
                 
                     <Link to="/wThree"><button className="wTwo-btn"> Next </button></Link>
                 </div>
@@ -21,8 +22,8 @@ class WizardTwo extends Component {
 }
 const mapStateToProps = state => {
     return {
-        city: state.city
+        cityType: state.city
     }
 }
 
-export default connect(mapStateToProps, updateCity)(WizardTwo);
+export default connect(mapStateToProps, {updateCity})(WizardTwo);

@@ -5,14 +5,15 @@ import { updateFound } from '../../ducks/reducer';
 
 class WizardFour extends Component {
     render(){
+        let { updateFound } = this.props;
         return(
             <div className="parent-div">
                 <div className="vert-align">            
                     <p>Have you already found your new home?</p> <br />
                     
                     <div className="row">
-                        <Link to="/wFive"><button onClick={() => updateFound(this.props.foundTrue)}>Yes</button></Link>
-                        <Link to="/wFive"><button onClick={() => updateFound(this.props.foundFalse)}>No </button></Link>  
+                        <Link to="/wFive"><button onClick={() => updateFound('Yes')}>Yes</button></Link>
+                        <Link to="/wFive"><button onClick={() => updateFound('No')}>No </button></Link>  
                     </div>         
                 </div>
             </div>
@@ -26,4 +27,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, updateFound)(WizardFour);
+export default connect(mapStateToProps, {updateFound})(WizardFour);

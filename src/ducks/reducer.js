@@ -109,10 +109,10 @@ export function updateFound(found) {
         payload: found
     }
 }
-export function updateAgent(name) {
+export function updateAgent(str) {
     return {
         type: UPDATE_AGENT,
-        payload: name
+        payload: str
     }
 }
 export function updateCost(cost) {
